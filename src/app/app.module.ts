@@ -6,10 +6,16 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MyHeaderComponent } from './main/my-header/my-header.component';
+import { MyBodyComponent } from './main/my-body/my-body.component';
+import { MyFooterComponent } from './main/my-footer/my-footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyHeaderComponent,
+    MyBodyComponent,
+    MyFooterComponent
   ],
   imports: [
     BrowserModule,
