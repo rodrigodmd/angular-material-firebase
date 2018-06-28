@@ -20,6 +20,9 @@ import {
 import { BodyComponent } from './layout/components/body/body.component';
 import { UserListComponent } from './main/user-list/user-list.component';
 import { UserListItemComponent } from './main/user-list/user-list-item/user-list-item.component';
+import { EventListComponent } from './main/event-list/event-list.component';
+import { EventListItemComponent } from './main/event-list/event-list-item/event-list-item.component';
+import { EventListDetailComponent } from './main/event-list/event-list-detail/event-list-detail.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { UserListItemComponent } from './main/user-list/user-list-item/user-list
     HeaderComponent,
     BodyComponent,
     UserListComponent,
-    UserListItemComponent
+    UserListItemComponent,
+    EventListComponent,
+    EventListItemComponent,
+    EventListDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

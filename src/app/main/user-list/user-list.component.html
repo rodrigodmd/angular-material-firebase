@@ -3,6 +3,7 @@
   <mat-card-content>
     <h2>va al asado: {{ peopleToMarked }}</h2>
     <mat-list>
+      <mat-divider></mat-divider>
       <app-user-list-item *ngFor="let user of users" (plusOne)="addOneToMarked($event)" [user]="user"></app-user-list-item>
     </mat-list>
   </mat-card-content>
