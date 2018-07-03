@@ -1,6 +1,7 @@
 <mat-card>
     <mat-card-title>Listado de asados</mat-card-title>
     <mat-card-content>
+      <button mat-button  (click)="btnAddClick();">Agregar asado</button>
       <mat-list>
         <mat-divider></mat-divider>
         <app-event-list-item *ngFor="let event of events" (gotoEvent)="showDetail($event)" [event]="event"></app-event-list-item>
@@ -8,7 +9,10 @@
     </mat-card-content>
   </mat-card>
 
-
+  <mat-card>
+    <router-outlet></router-outlet>
+  </mat-card>
+  
   <mat-card  *ngIf="eventDetail">
     <mat-card-title>Detalle de asados</mat-card-title>
     <app-event-list-detail [event]="eventDetail"></app-event-list-detail>

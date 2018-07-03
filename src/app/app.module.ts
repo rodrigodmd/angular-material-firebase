@@ -24,6 +24,11 @@ import { EventListComponent } from './main/event-list/event-list.component';
 import { EventListItemComponent } from './main/event-list/event-list-item/event-list-item.component';
 import { EventListDetailComponent } from './main/event-list/event-list-detail/event-list-detail.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { UserListAddComponent } from './main/user-list/user-list-add/user-list-add.component';
+import { EventListAddComponent } from './main/event-list/event-list-add/event-list-add.component';
+
 
 @NgModule({
   imports: [
@@ -36,7 +41,17 @@ import { EventListDetailComponent } from './main/event-list/event-list-detail/ev
     MatToolbarModule,
     MatCheckboxModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyC-GscEPC6uAa3lvJZP-DjzWlje7DhzAjQ",
+      authDomain: "asadomanager.firebaseapp.com",
+      databaseURL: "https://asadomanager.firebaseio.com",
+      projectId: "asadomanager",
+      storageBucket: "asadomanager.appspot.com",
+      messagingSenderId: "546665794706"
+    }),
+    AngularFirestoreModule.enablePersistence(),
   ],
   declarations: [
     AppComponent,
@@ -46,7 +61,9 @@ import { EventListDetailComponent } from './main/event-list/event-list-detail/ev
     UserListItemComponent,
     EventListComponent,
     EventListItemComponent,
-    EventListDetailComponent
+    EventListDetailComponent,
+    UserListAddComponent,
+    EventListAddComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
