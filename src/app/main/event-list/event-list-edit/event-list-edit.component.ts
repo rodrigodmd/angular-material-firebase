@@ -39,4 +39,6 @@ export class EventListEditComponent implements OnInit {
     this.router.navigateByUrl('/event')
   }
 
+  goBack = () => this.router.navigateByUrl('/event');
+
 }

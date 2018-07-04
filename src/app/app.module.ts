@@ -13,12 +13,13 @@ import { HeaderComponent } from './layout/components/header/header.component';
 import { 
   MatToolbarModule, 
   MatCheckboxModule,
-  MatButtonModule,
+  MatIconModule,
   MatCardModule,
   MatListModule,
   MatFormFieldModule,
   MatSelectModule,
-  MatInputModule
+  MatInputModule,
+  MatButtonModule,
 } from '@angular/material';
 import { BodyComponent } from './layout/components/body/body.component';
 import { UserListComponent } from './main/user-list/user-list.component';
@@ -47,6 +48,8 @@ import { EventListEditComponent } from './main/event-list/event-list-edit/event-
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    MatIconModule,
+    MatButtonModule,
 
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyC-GscEPC6uAa3lvJZP-DjzWlje7DhzAjQ",

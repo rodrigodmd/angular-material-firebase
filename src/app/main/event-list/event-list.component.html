@@ -8,13 +8,15 @@
       </mat-list>
       
     </mat-card-content>
-    <button mat-button  (click)="btnAddClick();">Agregar asado</button>
+    
+    <mat-card-actions align="end">
+      <button mat-fab color="primary"  (click)="btnAddClick();"><mat-icon>add</mat-icon></button>
+    </mat-card-actions>
   </mat-card>
 
-  <mat-card>
-    
-    <router-outlet></router-outlet>
-  </mat-card>
+  
+  <router-outlet></router-outlet>
+  
   
   <!-- <mat-card  *ngIf="eventDetail">
     <mat-card-title>Detalle de asados</mat-card-title>

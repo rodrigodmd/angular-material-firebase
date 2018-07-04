@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-list-detail',
@@ -16,7 +16,8 @@ export class EventListDetailComponent implements OnInit {
   };
   constructor(
     private _store: AngularFirestore,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,9 +27,9 @@ export class EventListDetailComponent implements OnInit {
         .subscribe(events => {
           this.event = events[0];
         });
-    });
-    
-    
+    }); 
   }
+
+  goBack = () => this.router.navigateByUrl('/event');
 
 }
