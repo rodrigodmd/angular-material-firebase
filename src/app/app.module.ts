@@ -15,7 +15,10 @@ import {
   MatCheckboxModule,
   MatButtonModule,
   MatCardModule,
-  MatListModule
+  MatListModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatInputModule
 } from '@angular/material';
 import { BodyComponent } from './layout/components/body/body.component';
 import { UserListComponent } from './main/user-list/user-list.component';
@@ -27,8 +30,7 @@ import { EventListDetailComponent } from './main/event-list/event-list-detail/ev
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { UserListAddComponent } from './main/user-list/user-list-add/user-list-add.component';
-import { EventListAddComponent } from './main/event-list/event-list-add/event-list-add.component';
-
+import { EventListEditComponent } from './main/event-list/event-list-edit/event-list-edit.component';
 
 @NgModule({
   imports: [
@@ -42,6 +44,9 @@ import { EventListAddComponent } from './main/event-list/event-list-add/event-li
     MatCheckboxModule,
     MatCardModule,
     MatListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
 
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyC-GscEPC6uAa3lvJZP-DjzWlje7DhzAjQ",
@@ -63,7 +68,7 @@ import { EventListAddComponent } from './main/event-list/event-list-add/event-li
     EventListItemComponent,
     EventListDetailComponent,
     UserListAddComponent,
-    EventListAddComponent,
+    EventListEditComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

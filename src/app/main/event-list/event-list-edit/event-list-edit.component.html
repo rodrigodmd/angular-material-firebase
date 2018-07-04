@@ -1,0 +1,60 @@
+
+<form #f novalidate (ngSubmit)="editEvent(f)"> 
+  <mat-card>
+     
+    <mat-card-header>
+        <!-- <mat-icon>help</mat-icon> -->
+        <mat-card-title-group>
+            <mat-card-title>
+                Crear nuevo asado
+            </mat-card-title>
+            <mat-card-subtitle>
+                Ingrese datos del asado
+            </mat-card-subtitle>
+        </mat-card-title-group>
+       
+    </mat-card-header> 
+    
+    <mat-card-content>
+      <p>
+        <mat-form-field>
+            <input matInput placeholder="Nombre" required [(ngModel)]="event.name" name="event_name">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+            <input matInput placeholder="Descripción" required [(ngModel)]="event.description" name="event_description">
+        </mat-form-field>
+      </p>
+        
+      <p>
+        <mat-form-field>
+            <input matInput placeholder="Precio" required [(ngModel)]="event.price" name="event_price">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+            <input matInput placeholder="Lugar" required [(ngModel)]="event.place" name="event_place">
+        </mat-form-field>
+      </p>
+    </mat-card-content>
+     <mat-card-actions align="end">
+          <button mat-button  type="submit">Crear</button>
+      </mat-card-actions>
+  </mat-card>
+    <!-- <p>
+      <mat-form-field>
+        <textarea matInput placeholder="Textarea"></textarea>
+      </mat-form-field>
+    </p>  
+
+    <p>
+      <mat-form-field>
+        <mat-select placeholder="Select">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p> -->
+</form>

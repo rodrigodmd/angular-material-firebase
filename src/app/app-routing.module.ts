@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EventListComponent } from './main/event-list/event-list.component';
-import { EventListAddComponent } from './main/event-list/event-list-add/event-list-add.component';
-import { UserListItemComponent } from './main/user-list/user-list-item/user-list-item.component';
+
+import { EventListEditComponent } from './main/event-list/event-list-edit/event-list-edit.component';
+import { EventListDetailComponent } from './main/event-list/event-list-detail/event-list-detail.component';
+
 
 const routes: Routes = [
-  { path: 'event', component: EventListComponent, children: [
-      { path: 'detail/:id', component: EventListAddComponent } ,
-      { path: 'add', component: EventListAddComponent } 
-    ]
-  },
+  // { path: 'event', component: EventListComponent, children: [
+  //     { path: 'detail/:id', component: EventListDetailComponent } ,
+  //     { path: 'add', component: EventListEditComponent },
+  //     { path: 'edit/:id', component: EventListEditComponent }  
+  //   ]
+  // },
+  { path: 'event', component: EventListComponent },
+  { path: 'event/add', component: EventListEditComponent },
+  { path: 'event/edit/:id', component: EventListEditComponent },
+  { path: 'event/detail/:id', component: EventListDetailComponent } ,
   { path: '', redirectTo: '/event', pathMatch: 'full' }
 ];
 

@@ -43,7 +43,10 @@ export class EventListComponent implements OnInit {
       .subscribe(events => this.events = events);
   }
 
-  showDetail = (event) => this.eventDetail = event;
+  showDetail = (event) => {
+    console.log(event);
+    this.router.navigateByUrl(`/event/detail/${event.id}`); //this.eventDetail = event;
+  }
 
   btnAddClick = () =>  this.router.navigateByUrl('/event/add');
 }
