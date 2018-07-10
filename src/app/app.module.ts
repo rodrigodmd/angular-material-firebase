@@ -32,6 +32,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { UserListAddComponent } from './main/user-list/user-list-add/user-list-add.component';
 import { EventListEditComponent } from './main/event-list/event-list-edit/event-list-edit.component';
+import { LoginComponent } from './main/basic/login/login.component';
+import { RegisterComponent } from './main/basic/register/register.component';
 
 @NgModule({
   imports: [
@@ -72,6 +74,8 @@ import { EventListEditComponent } from './main/event-list/event-list-edit/event-
     EventListDetailComponent,
     UserListAddComponent,
     EventListEditComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
