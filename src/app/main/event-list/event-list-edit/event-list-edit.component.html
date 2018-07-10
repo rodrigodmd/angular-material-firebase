@@ -1,5 +1,5 @@
 
-<form #f novalidate (ngSubmit)="editEvent(f)"> 
+<form #f="ngForm" novalidate (ngSubmit)="editEvent(f)"> 
   <mat-card>
      
     <mat-card-header>
@@ -36,19 +36,19 @@
 
       <p>
         <mat-form-field>
-            <input matInput placeholder="Descripción" required [(ngModel)]="event.description" name="event_description">
+            <input matInput placeholder="Descripción" [(ngModel)]="event.description" name="event_description">
         </mat-form-field>
       </p>
         
       <p>
         <mat-form-field>
-            <input matInput placeholder="Precio" required [(ngModel)]="event.price" name="event_price">
+            <input matInput placeholder="Precio" [(ngModel)]="event.price" name="event_price">
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-            <input matInput placeholder="Lugar" required [(ngModel)]="event.place" name="event_place">
+            <input matInput placeholder="Lugar" [(ngModel)]="event.place" name="event_place">
         </mat-form-field>
       </p>
     </mat-card-content>

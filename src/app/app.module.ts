@@ -27,6 +27,7 @@ import { UserListItemComponent } from './main/user-list/user-list-item/user-list
 import { EventListComponent } from './main/event-list/event-list.component';
 import { EventListItemComponent } from './main/event-list/event-list-item/event-list-item.component';
 import { EventListDetailComponent } from './main/event-list/event-list-detail/event-list-detail.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -42,6 +43,7 @@ import { RegisterComponent } from './main/basic/register/register.component';
     AppRoutingModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
+    FlexLayoutModule,
 
     MatToolbarModule,
     MatCheckboxModule,
