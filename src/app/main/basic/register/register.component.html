@@ -1,3 +1,39 @@
-<p>
-  register works!
-</p>
+
+<form #f="ngForm" novalidate (ngSubmit)="register(f)"  fxLayoutAlign="center center"> 
+  <mat-card >
+    <mat-card-title>
+      Ingrese formulario para registrarse
+    </mat-card-title>
+    
+    <mat-card-content>
+        <p><mat-form-field>
+          <input matInput placeholder="Nombre" required [(ngModel)]="user.name" name="user_name" autocomplete="off">
+        </mat-form-field></p>
+
+      <p><mat-form-field>
+        <input matInput placeholder="E-mail" required email [(ngModel)]="user.mail" name="user_mail" autocomplete="off">
+      </mat-form-field></p>
+      
+      <p><mat-form-field>
+          <input matInput placeholder="Contraseña" required [(ngModel)]="user.password" name="user_password" autocomplete="off">
+      </mat-form-field></p>
+
+      <p><mat-form-field>
+          <input matInput placeholder="Reingresar Contraseña" required [(ngModel)]="password_reentered" name="password_reentered" autocomplete="off">
+      </mat-form-field></p>  
+
+      <p>{{ error }}</p>
+      
+      <p><button mat-raised-button color="accent" type="submit" [(disabled)]="!f.valid">
+        Registrarse
+      </button></p>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      
+    
+    </mat-card-actions>
+    
+  </mat-card>
+   
+</form>

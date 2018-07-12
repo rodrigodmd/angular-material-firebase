@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 import { 
   MatToolbar, 
@@ -13,9 +14,16 @@ import {
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _fireAuth:AngularFireAuth,
+  ) { }
 
   ngOnInit() {
+    this._fireAuth.auth.onAuthStateChanged((user) => {
+      if (user) {
+        console.log(user);
+      }
+    });
   }
 
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +31,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { UserListAddComponent } from './main/user-list/user-list-add/user-list-add.component';
 import { EventListEditComponent } from './main/event-list/event-list-edit/event-list-edit.component';
 import { LoginComponent } from './main/basic/login/login.component';
@@ -64,6 +65,7 @@ import { RegisterComponent } from './main/basic/register/register.component';
       messagingSenderId: "546665794706"
     }),
     AngularFirestoreModule.enablePersistence(),
+    AngularFireAuthModule
   ],
   declarations: [
     AppComponent,

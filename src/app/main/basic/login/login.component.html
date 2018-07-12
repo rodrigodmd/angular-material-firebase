@@ -1,28 +1,35 @@
 
-<form #f="ngForm" novalidate (ngSubmit)="editEvent(f)"  fxLayoutAlign="center center"> 
+<form #f="ngForm" novalidate (ngSubmit)="login(f)"  fxLayoutAlign="center center"> 
   <mat-card >
     <mat-card-title>
       Ingrese e-mail y contraseña
     </mat-card-title>
     
     <mat-card-content>
-      <p>
-        <mat-form-field >
-            <input matInput placeholder="E-mail" required email [(ngModel)]="user.mail" name="user_mail" flex >
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field>
-            <input matInput placeholder="Contraseña" required [(ngModel)]="user.password" name="user_password">
-        </mat-form-field>
-      </p>  
+      <p><mat-form-field>
+        <input matInput placeholder="E-mail" required email [(ngModel)]="user.mail" name="user_mail" autocomplete="off">
+      </mat-form-field></p>
+      
+      <p><mat-form-field>
+          <input matInput placeholder="Contraseña" required [(ngModel)]="user.password" name="user_password" autocomplete="off">
+      </mat-form-field></p>  
+
+      <p>{{ error }}</p>
+      
+      <p><button mat-raised-button color="accent" type="submit" [(disabled)]="!f.valid">
+        Ingresar
+      </button></p>
+
+      <p><button mat-raised-button color="accent"  >
+        Ingresar con cuenta de Google
+      </button></p>
+
+      <p><a [routerLink]="'/register'">Crear cuenta.</a></p>
     </mat-card-content>
 
     <mat-card-actions align="end">
-      <button mat-raised-button color="accent" type="submit" [(disabled)]="!f.valid">
-          <mat-icon>check</mat-icon>
-          Ingresar
-      </button>
+      
+    
     </mat-card-actions>
     
   </mat-card>
