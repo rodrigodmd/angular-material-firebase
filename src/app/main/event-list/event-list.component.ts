@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
+
 import { Router } from '@angular/router';
+import { EventListService } from 'src/app/shared/service/event-list.service';
 
 @Component({
   selector: 'app-event-list',
@@ -8,39 +9,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./event-list.component.scss']
 })
 export class EventListComponent implements OnInit {
-  events = [ ];
-  /*
-    {  
-      name: 'Asado mundial',
-      token:'adadasasd', 
-      description: 'Le vamos a ganar a Francia',
-      price: '100',
-      place: ''
-    },
-    { 
-      name: 'Cumple Fran',
-      token:'adadasasd', 
-      description: 'Puto el que lee',
-      price: '100',
-      place: '' 
-    },
-    { 
-      name: 'Asado domingo',
-      token:'adadasasd', 
-      description: '',
-      price: '100',
-      place: ''
-    },
-  ];*/
+  private events:Event[] = [];
 
   eventDetail = null;
   
-  constructor(private _store: AngularFirestore, private router: Router) { }
+  constructor(
+    private router: Router, 
+    private eventListService: EventListService
+  ) { }
 
   ngOnInit() {
-    this._store.collection('events')
-      .valueChanges()
-      .subscribe(events => this.events = events);
+    this.eventListService.getEventList().subscribe((eventList) => {
+        this.events = eventList;
+        console.log(eventList);
+    });
   }
 
   showDetail = (event) => {
