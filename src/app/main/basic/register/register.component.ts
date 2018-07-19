@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore } from 'angularfire2/firestore';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { LoginService } from 'src/app/shared/service/login.service';
 
 @Component({
   selector: 'app-register',
@@ -21,9 +20,8 @@ export class RegisterComponent implements OnInit {
   error:String = "";
 
   constructor(
-    private _fireAuth:AngularFireAuth,
-    private _store: AngularFirestore,
     private _router:Router,
+    private _loginService:LoginService,
   ) { }
 
   ngOnInit() {
@@ -37,28 +35,28 @@ export class RegisterComponent implements OnInit {
       this.error = "";
     }
 
-    this._fireAuth.auth.createUserWithEmailAndPassword(this.user.mail, this.user.password)
+    this._loginService.register(this.user)
       .then((data:any) => {
-        if (!this.user.uid) { 
-          this.user.uid = data.user.uid;
-        }
-        this._store.collection('user').add(this.user);
-        this.login();
+          //do something
+       //   form.reset();
+          this.login();
       })
       .catch(err => {
         this.error = err.message;
       });
-  }
+    }
 
-  login = () => {
-    this._fireAuth.auth.signInWithEmailAndPassword(this.user.mail, this.user.password)
-      .then(() => {
-        this._router.navigate(['/event']);
-      })
-      .catch(err => {
-        this.error = err.message;
-      });
-  }
+    login = () => {
+      this._loginService.signIn(this.user.mail, this.user.password)
+        .then(() => {
+          this._router.navigate(['/event']);
+        })
+        .catch(err => {
+          this.error = err.message;
+        });
+    }
+
+  
 
 
 }

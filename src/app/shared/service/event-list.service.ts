@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
 
 export interface Event {
   id?: string
@@ -17,15 +17,22 @@ export interface Event {
 })
 export class EventListService {
 
-  private _events = [];
-
-  constructor(private _store: AngularFirestore) { 
+  private _events = new Observable<Event[]>((obs) => {
     this._store.collection('events')
-      .valueChanges()
-      .subscribe(events => this._events = events);
-  }
+        .valueChanges()
+        .subscribe(events => {
+          obs.next(events as Event[]);
+        });
 
-  getEventList = () => of(this._events);
+  });
+
+  constructor(
+    private _store: AngularFirestore
+  ) { 
+    
+    }
+
+  getEventList = ():Observable<Event[]> => this._events;
   
 
   

@@ -6,6 +6,7 @@ import { EventListEditComponent } from './main/event-list/event-list-edit/event-
 import { EventListDetailComponent } from './main/event-list/event-list-detail/event-list-detail.component';
 import { LoginComponent } from './main/basic/login/login.component';
 import { RegisterComponent } from './main/basic/register/register.component';
+import { AuthenticationGuard } from './shared/authentication.guard';
 
 
 const routes: Routes = [
@@ -17,10 +18,10 @@ const routes: Routes = [
   // },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'event', component: EventListComponent },
-  { path: 'event/add', component: EventListEditComponent },
-  { path: 'event/edit/:id', component: EventListEditComponent },
-  { path: 'event/detail/:id', component: EventListDetailComponent } ,
+  { path: 'event', component: EventListComponent, canActivate: [ AuthenticationGuard ] },
+  { path: 'event/add', component: EventListEditComponent, canActivate: [ AuthenticationGuard ]  },
+  { path: 'event/edit/:id', component: EventListEditComponent, canActivate: [ AuthenticationGuard ]  },
+  { path: 'event/detail/:id', component: EventListDetailComponent, canActivate: [ AuthenticationGuard ]  } ,
   { path: '', redirectTo: '/event', pathMatch: 'full' }
 ];
 

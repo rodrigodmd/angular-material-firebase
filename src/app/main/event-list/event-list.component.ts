@@ -9,7 +9,7 @@ import { EventListService } from 'src/app/shared/service/event-list.service';
   styleUrls: ['./event-list.component.scss']
 })
 export class EventListComponent implements OnInit {
-  private events:Event[] = [];
+  private events = [];
 
   eventDetail = null;
   
@@ -21,13 +21,11 @@ export class EventListComponent implements OnInit {
   ngOnInit() {
     this.eventListService.getEventList().subscribe((eventList) => {
         this.events = eventList;
-        console.log(eventList);
     });
   }
 
   showDetail = (event) => {
-    console.log(event);
-    this.router.navigateByUrl(`/event/detail/${event.id}`); //this.eventDetail = event;
+    this.router.navigateByUrl(`/event/detail/${event.id}`); 
   }
 
   btnAddClick = () =>  this.router.navigateByUrl('/event/add');
