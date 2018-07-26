@@ -32,10 +32,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { UserListAddComponent } from './main/user-list/user-list-add/user-list-add.component';
 import { EventListEditComponent } from './main/event-list/event-list-edit/event-list-edit.component';
 import { LoginComponent } from './main/basic/login/login.component';
 import { RegisterComponent } from './main/basic/register/register.component';
+import { UserListDetailComponent } from './main/user-list/user-list-detail/user-list-detail.component';
+import { UserListEditComponent } from './main/user-list/user-list-edit/user-list-edit.component';
 
 @NgModule({
   imports: [
@@ -76,10 +77,11 @@ import { RegisterComponent } from './main/basic/register/register.component';
     EventListComponent,
     EventListItemComponent,
     EventListDetailComponent,
-    UserListAddComponent,
     EventListEditComponent,
     LoginComponent,
     RegisterComponent,
+    UserListDetailComponent,
+    UserListEditComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

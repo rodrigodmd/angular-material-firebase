@@ -1,10 +1,25 @@
+<form action="">
 <mat-card>
-  <mat-card-title>Listado de personas</mat-card-title>
+  <mat-card-header>
+    <!-- <mat-icon>help</mat-icon> -->
+    <mat-card-title-group>
+        <mat-card-title>
+            Listado de invitados
+        </mat-card-title>
+        <mat-card-subtitle>
+          va al asado: {{ peopleToMarked }}
+        </mat-card-subtitle>
+    </mat-card-title-group>
+</mat-card-header> 
   <mat-card-content>
-    <h2>va al asado: {{ peopleToMarked }}</h2>
     <mat-list>
       <mat-divider></mat-divider>
       <app-user-list-item *ngFor="let user of users" (plusOne)="addOneToMarked($event)" [user]="user"></app-user-list-item>
     </mat-list>
   </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-fab color="primary"  (click)="btnAddClick();"><mat-icon>add</mat-icon></button>
+  </mat-card-actions>
 </mat-card>
+
+</form>

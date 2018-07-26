@@ -1,16 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { Router } from '@angular/router';
+import { EventListService } from 'src/app/shared/service/event-list.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
-export interface Event {
-  id?: string
-  name: string,
-  token?:string, 
-  description?: string,
-  price?: number,
-  place?: ''
-}
 
 @Component({
   selector: 'app-event-list-edit',
@@ -20,22 +12,24 @@ export interface Event {
 
 
 export class EventListEditComponent implements OnInit {
-  event: Event = { name: '', description:'' }
+  event: any = { name: '', description:'' }
   constructor(
-    private _store: AngularFirestore,
-    private router: Router
+    private eventListService: EventListService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
+    this.route.params.subscribe(data => {
+      this.eventListService.getEvent(data.id)
+        .subscribe(event => {
+          this.event = event;
+        })
+    });  
   }
 
   editEvent = (form: NgForm) => {
-    console.log("Adding event:");
-    console.log(this.event);
-    if (!this.event.id) { 
-      this.event.id = this._store.createId();
-    }
-    this._store.collection('events').add(this.event);
+    this.eventListService.editEvent(this.event);
     this.router.navigateByUrl('/event')
   }
 

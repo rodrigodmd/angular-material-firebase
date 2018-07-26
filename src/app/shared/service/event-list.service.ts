@@ -12,18 +12,20 @@ export interface Event {
 }
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class EventListService {
 
+  private COLLECTION = 'events';
+
   private _events = new Observable<Event[]>((obs) => {
-    this._store.collection('events')
+    this._store.collection(this.COLLECTION)
         .valueChanges()
         .subscribe(events => {
           obs.next(events as Event[]);
         });
-
   });
 
   constructor(
@@ -33,7 +35,17 @@ export class EventListService {
     }
 
   getEventList = ():Observable<Event[]> => this._events;
+
+  //getEvent = (id) => this._store.collection(this.COLLECTION, ref => ref.where('id', '==', id)).valueChanges();
+  getEvent = (id) => this._store.collection(this.COLLECTION).doc(id).valueChanges();
   
+  editEvent = (event) => {
+    if (!event.id) { 
+      event.id = this._store.createId();
+      
+    }
+    this._store.collection(this.COLLECTION).doc(event.id).set(event);
+  }
 
   
 }
