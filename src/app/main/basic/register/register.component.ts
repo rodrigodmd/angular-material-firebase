@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   };
   password_reentered:String = '';
   error:String = "";
+  hide = true;
 
   constructor(
     private _router:Router,

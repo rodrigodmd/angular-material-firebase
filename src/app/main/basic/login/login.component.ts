@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   user = { mail: '', password:'' };
   error:String = "";
+  hide = true;
   
   constructor(
     private _fireAuth:AngularFireAuth,

@@ -24,9 +24,9 @@ const routes: Routes = [
   { path: 'event/detail/:id', component: EventListDetailComponent , canActivate: [ AuthenticationGuard ]  },
   { path: 'event/add'       , component: EventListEditComponent   , canActivate: [ AuthenticationGuard ]  },
   { path: 'event/:id'     , component: EventListEditComponent   , canActivate: [ AuthenticationGuard ], children: [
-    { path: 'user'        , component: UserListComponent } ,
-    { path: 'user/add'    , component: UserListEditComponent } ,
-    { path: 'user/:id'    , component: UserListEditComponent } ,
+      { path: 'user'        , component: UserListComponent } ,
+      { path: 'user/add'    , component: UserListEditComponent } ,
+      { path: 'user/:id'    , component: UserListEditComponent } ,
     ]
   },
   { path: '', redirectTo: '/event', pathMatch: 'full' }

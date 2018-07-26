@@ -10,8 +10,10 @@
         <input matInput placeholder="E-mail" required email [(ngModel)]="user.mail" name="user_mail" autocomplete="off">
       </mat-form-field></p>
       
+      
       <p><mat-form-field>
-          <input matInput placeholder="Contraseña" required [(ngModel)]="user.password" name="user_password" autocomplete="off">
+          <input matInput placeholder="Contraseña" required [(ngModel)]="user.password" name="user_password" autocomplete="off" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
       </mat-form-field></p>  
 
       <p>{{ error }}</p>
