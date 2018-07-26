@@ -21,15 +21,14 @@ const routes: Routes = [
   { path: 'login'           , component: LoginComponent },
   { path: 'register'        , component: RegisterComponent },
   { path: 'event'           , component: EventListComponent       , canActivate: [ AuthenticationGuard ] },
-  { path: 'event/add'       , component: EventListEditComponent   , canActivate: [ AuthenticationGuard ]  },
   { path: 'event/detail/:id', component: EventListDetailComponent , canActivate: [ AuthenticationGuard ]  },
-  { path: 'event/:id'  , component: EventListEditComponent   , canActivate: [ AuthenticationGuard ], children: [
-    { path: 'user'            , component: UserListComponent } ,
-    { path: 'user/add'            , component: UserListEditComponent } ,
-    { path: 'user/edit/:id'            , component: UserListEditComponent } ,
+  { path: 'event/add'       , component: EventListEditComponent   , canActivate: [ AuthenticationGuard ]  },
+  { path: 'event/:id'     , component: EventListEditComponent   , canActivate: [ AuthenticationGuard ], children: [
+    { path: 'user'        , component: UserListComponent } ,
+    { path: 'user/add'    , component: UserListEditComponent } ,
+    { path: 'user/:id'    , component: UserListEditComponent } ,
     ]
   },
-  // { path: 'event/detail/:id', component: EventListDetailComponent, canActivate: [ AuthenticationGuard ]  } ,
   { path: '', redirectTo: '/event', pathMatch: 'full' }
 ];
 
