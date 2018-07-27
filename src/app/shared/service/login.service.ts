@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { UserListService } from './user-list.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class LoginService {
   private IS_LOGGED_IN = 'isLoggedIn';
 
   user = { 
-    uid: '',
+    id: '',
     name: '',
     mail: '', 
     password:''
@@ -19,7 +19,7 @@ export class LoginService {
 
   constructor(
     private _fireAuth:AngularFireAuth,
-    private _store: AngularFirestore,
+    private userListService:UserListService,
   ) { 
     this._fireAuth.auth.onAuthStateChanged((user) => {
       this.fireUser = user;
@@ -39,10 +39,10 @@ export class LoginService {
     return this._fireAuth.auth.createUserWithEmailAndPassword(user.mail, user.password)
       .then((data:any) => {
         this.user = user;
-        if (!this.user.uid) { 
-          this.user.uid = data.user.uid;
+        if (!this.user.id) { 
+          this.user.id = data.user.uid;
         }
-        this._store.collection('user').add(this.user);
+        this.userListService.addUser(this.user);
       });
   }
 

@@ -20,18 +20,20 @@ import {
   MatSelectModule,
   MatInputModule,
   MatButtonModule,
+  MatAutocompleteModule,
 } from '@angular/material';
 import { BodyComponent } from './layout/components/body/body.component';
-import { UserListComponent } from './main/user-list/user-list.component';
-import { UserListItemComponent } from './main/user-list/user-list-item/user-list-item.component';
-import { EventListComponent } from './main/event-list/event-list.component';
-import { EventListItemComponent } from './main/event-list/event-list-item/event-list-item.component';
-import { EventListDetailComponent } from './main/event-list/event-list-detail/event-list-detail.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { UserListComponent } from './main/user-list/user-list.component';
+import { UserListItemComponent } from './main/user-list/user-list-item/user-list-item.component';
+import { EventListComponent } from './main/event-list/event-list.component';
+import { EventListItemComponent } from './main/event-list/event-list-item/event-list-item.component';
+import { EventListDetailComponent } from './main/event-list/event-list-detail/event-list-detail.component';
 import { EventListEditComponent } from './main/event-list/event-list-edit/event-list-edit.component';
 import { LoginComponent } from './main/basic/login/login.component';
 import { RegisterComponent } from './main/basic/register/register.component';
@@ -56,6 +58,7 @@ import { UserListEditComponent } from './main/user-list/user-list-edit/user-list
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MatAutocompleteModule,
 
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyC-GscEPC6uAa3lvJZP-DjzWlje7DhzAjQ",

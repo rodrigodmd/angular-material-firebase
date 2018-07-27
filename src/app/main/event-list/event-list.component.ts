@@ -25,7 +25,7 @@ export class EventListComponent implements OnInit {
   }
 
   showDetail = (event) => {
-    this.router.navigateByUrl(`/event/${event.id}`); 
+    this.router.navigateByUrl(`/event/${event.id}/user`); 
   }
 
   btnAddClick = () =>  this.router.navigateByUrl('/event/add');
