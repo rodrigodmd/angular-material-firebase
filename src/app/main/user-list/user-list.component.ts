@@ -45,13 +45,14 @@ export class UserListComponent implements OnInit {
 
   searchUser = () => {
     console.log(this.userSearch);
+    this.userListService.searchUser(this.userSearch);
     // this.eventListService.editEvent(this.event);
     // this.router.navigateByUrl('/event')
   }
 
   selectUser = () => {
     console.log("SELECTED: " + this.userSearch);
-    this.userListService.searchUser(this.userSearch);
+    
     // this.router.navigateByUrl('/event')
   }
   
