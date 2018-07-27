@@ -21,6 +21,7 @@ import {
   MatInputModule,
   MatButtonModule,
   MatAutocompleteModule,
+  MatMenuModule,
 } from '@angular/material';
 import { BodyComponent } from './layout/components/body/body.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -59,6 +60,7 @@ import { UserListEditComponent } from './main/user-list/user-list-edit/user-list
     MatIconModule,
     MatButtonModule,
     MatAutocompleteModule,
+    MatMenuModule,
 
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyC-GscEPC6uAa3lvJZP-DjzWlje7DhzAjQ",

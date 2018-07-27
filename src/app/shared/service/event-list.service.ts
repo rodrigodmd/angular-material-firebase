@@ -40,7 +40,6 @@ export class EventListService {
   editEvent = (event) => {
     if (!event.id) { 
       event.id = this._store.createId();
-      
     }
     this._store.collection(this.COLLECTION).doc(event.id).set(event);
   }

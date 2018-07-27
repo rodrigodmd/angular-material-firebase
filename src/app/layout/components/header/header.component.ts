@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/shared/service/login.service';
 
-import { 
-  MatToolbar, 
-  MatButtonModule, 
-  MatCheckboxModule
-} from '@angular/material';
 
 @Component({
   selector: 'app-header',
@@ -15,15 +11,19 @@ import {
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private _fireAuth:AngularFireAuth,
+    private loginService:LoginService,
+    private router: Router,
   ) { }
 
-  ngOnInit() {
-    this._fireAuth.auth.onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user);
-      }
-    });
+  ngOnInit() { }
+
+  goEventList = () => this.router.navigateByUrl('event');
+
+  isAuthenticated = () => this.loginService.isAuthenticated();
+
+  logout = () => {
+    this.loginService.signOut();
+    this.router.navigateByUrl('login');
   }
 
 }
