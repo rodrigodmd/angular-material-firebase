@@ -1,6 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-
-import { UserListService } from './user-list.service';
+import { UserListService } from 'src/app/shared/service/user-list.service';
 
 describe('UserListService', () => {
   beforeEach(() => {

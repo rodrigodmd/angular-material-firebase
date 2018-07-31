@@ -1,6 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-
-import { EventListService } from './event-list.service';
+import { EventListService } from 'src/app/shared/service/event-list.service';
 
 describe('EventListService', () => {
   beforeEach(() => {

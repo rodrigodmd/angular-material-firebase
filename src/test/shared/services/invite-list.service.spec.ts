@@ -1,6 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-
-import { InviteListService } from './invite-list.service';
+import { InviteListService } from 'src/app/shared/service/invite-list.service';
 
 describe('InviteListService', () => {
   beforeEach(() => {

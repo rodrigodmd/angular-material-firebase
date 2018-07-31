@@ -18,10 +18,7 @@ export class UserListComponent implements OnInit {
   ];
 
   userSearch:string = "";
-  userOptions = [
-    { display: 'Rodrigo Moreno - rodrigodmd@hotmail.com' },
-    { display: 'Admin Genius - admin@mail.com' },
-  ];
+  userOptions;
 
   eventId:string;
 
@@ -44,10 +41,10 @@ export class UserListComponent implements OnInit {
   }
 
   searchUser = () => {
-    console.log(this.userSearch);
-    this.userListService.searchUser(this.userSearch);
-    // this.eventListService.editEvent(this.event);
-    // this.router.navigateByUrl('/event')
+    this.userListService.searchUser(this.userSearch).subscribe((userList) => {
+      this.userOptions = userList;
+    });
+    // this.userOptions = this.userListService.searchUser(this.userSearch);
   }
 
   selectUser = () => {
