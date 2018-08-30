@@ -1,3 +1,30 @@
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
   <span>Cool Event Manager</span>
-</mat-toolbar>
+</mat-toolbar> -->
+
+<mat-toolbar color="primary">
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item (click)="goEventList()"> 
+        <mat-icon>event</mat-icon>
+        <span>Asados</span>
+      </button>
+      <button mat-menu-item> 
+        <mat-icon>assignment_ind</mat-icon>
+        <span>Modificar mis datos</span>
+      </button>
+      
+      <button mat-menu-item (click)="logout()"> 
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Salir</span>
+      </button>
+    </mat-menu>
+
+    <button mat-button   *ngIf="isAuthenticated()" class="md-icon-button" aria-label="Settings" [matMenuTriggerFor]="appMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <h2 flex md-truncate>Cool asado Manager!!</h2>
+
+    
+  </mat-toolbar>
+  <br>

@@ -21,4 +21,6 @@ export class UserListItemComponent implements OnInit {
     this.plusOne.emit(this.marked);
   }
 
+  
+
 }

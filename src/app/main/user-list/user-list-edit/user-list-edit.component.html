@@ -1,0 +1,44 @@
+
+<form #f="ngForm" novalidate (ngSubmit)="saveInvite(f)"> 
+  <mat-card>
+    <mat-card-header>
+        <!-- <mat-icon>help</mat-icon> -->
+        <mat-card-title-group>
+            <mat-card-title>
+                Invitar usuario
+            </mat-card-title>
+            <mat-card-subtitle>
+                Ingrese datos del asado
+            </mat-card-subtitle>
+
+            <mat-card-actions align="end">
+              <button mat-raised-button color="accent" type="submit" [(disabled)]="!f.valid">
+                  <!-- [disabled]="!f.valid" -->
+                  <mat-icon>check</mat-icon>
+                  Enviar invitancia 
+              </button>
+              <button mat-raised-button type="button" (click)="goBack()" >
+                  <mat-icon>close</mat-icon>
+                  Cancelar
+              </button>
+            </mat-card-actions>
+        </mat-card-title-group>
+    </mat-card-header> 
+    
+    <mat-card-content>
+      <p>
+        <mat-form-field>
+            <input matInput placeholder="Nombre o mail" required [(ngModel)]="userSearch" name="user_search">
+            <mat-icon matSuffix>search</mat-icon>
+            <mat-hint>Ingrese mail o nombre de invitado</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <p>Nombre: {{ invite.user.name }}</p>
+      <p>E-mail: {{ invite.user.mail }}</p>
+      <p>Aceptado: {{ invite.user.accepted ? "Si" : "No" }}</p>
+      
+    </mat-card-content>
+    
+  </mat-card>
+</form>
